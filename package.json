@@ -1,0 +1,34 @@
+{
+  "name": "powerswitch",
+  "version": "0.0.1",
+  "description": "a web interface for controlling powered devices",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alecbenson/PowerSwitch.git"
+  },
+  "keywords": [
+    "powerswitch",
+    "raspberry",
+    "pi",
+    "web",
+    "interface"
+  ],
+  "author": "Alec Benson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alecbenson/PowerSwitch/issues"
+  },
+  "homepage": "https://github.com/alecbenson/PowerSwitch#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "commander": "^2.9.0",
+    "content-disposition": "^0.5.1",
+    "express": "^4.13.4",
+    "pi-gpio": "0.0.8",
+    "pug": "^0.1.0"
+  }
+}
