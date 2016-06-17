@@ -30,5 +30,10 @@
     "express": "^4.13.4",
     "pi-gpio": "0.0.8",
     "pug": "^0.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
+    "gulp-notify": "^2.2.0",
   }
 }

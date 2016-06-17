@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "jquery": "^3.0.0",
-    "react": "^15.1.0"
+    "react": "^15.1.0",
+    "font-awesome": "fontawesome#^4.6.3"
   }
 }
