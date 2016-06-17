@@ -1,0 +1,29 @@
+{
+  "name": "powerswitch",
+  "description": "a web interface for controlling powered devices",
+  "main": "app.js",
+  "authors": [
+    "Alec Benson"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "powerswitch",
+    "raspberry",
+    "pi",
+    "web",
+    "interface"
+  ],
+  "homepage": "https://github.com/alecbenson/PowerSwitch",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "react": "^15.1.0"
+  }
+}
