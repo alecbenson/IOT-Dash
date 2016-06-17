@@ -1,23 +1,43 @@
-var gulp = require('gulp'),
-  sass = require('gulp-ruby-sass'),
-  notify = require("gulp-notify"),
-  bower = require('gulp-bower');
+var gulp = require('gulp');
 
-var config = {
-  sassPath: './resources/sass',
-  bowerDir: './bower_components'
-};
+// Include plugins
+var plugins = require("gulp-load-plugins")();
+
+
+//Output destination
+var dest = 'dist/';
 
 //Run bower
 gulp.task('bower', function() {
-  return bower()
-    .pipe(gulp.dest(config.bowerDir));
+  return plugins.bower();
 });
 
-//Install fontawesome
-gulp.task('icons', function() {
-  return gulp.src(config.bowerDir +
-    '/fontawesome/fonts/**.*').pipe(gulp.dest('./public/fonts'));
+//Handle JS
+gulp.task('js', function() {
+	gulp.src('./bower.json')
+    .pipe(plugins.mainBowerFiles())
+		.pipe(plugins.filter('*.js'))
+		.pipe(plugins.concat('main.js'))
+		.pipe(plugins.uglify())
+		.pipe(gulp.dest(dest + 'js'));
 });
 
-gulp.task('default', ['bower', 'icons']);
+//Handle CSS
+gulp.task('css', function() {
+	gulp.src('./bower.json')
+    .pipe(plugins.mainBowerFiles())
+		.pipe(plugins.filter('*.css'))
+		.pipe(plugins.concat('main.css'))
+		.pipe(plugins.uglify())
+		.pipe(gulp.dest(dest + 'css'));
+});
+
+//Handle fonts
+gulp.task('fonts', function() {
+	gulp.src('./bower.json')
+    .pipe(plugins.mainBowerFiles())
+		.pipe(plugins.filter('*.ttf'))
+		.pipe(gulp.dest(dest + 'fonts'));
+});
+
+gulp.task('default', ['bower', 'js', 'css', 'fonts']);

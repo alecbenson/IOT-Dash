@@ -1,28 +1,5 @@
 html
   head
-    title= title
-    script(type='text/javascript', src='js/jquery.js')
-    script(type='text/javascript', src='js/jquery-2.2.3.min.js')
-    script(type='text/javascript', src='js/materialize.min.js')
-    link(href='css/materialize.min.css' rel='stylesheet')
-    link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    | Hello
   body
     nav
-      .nav-wrapper
-        a.brand-logo(href='#!') Logo
-        a.button-collapse(href='#', data-activates='mobile')
-          i.material-icons menu
-        ul.right.hide-on-med-and-down
-          li
-            a(href='devices.html') Devices
-          li
-            a(href='inputs.html') Components
-        ul#mobile.side-nav
-          li
-            a(href='devices.html') Devices
-          li
-            a(href='inputs.html') Inputs
-    script.
-      $(document).ready(function(){
-        $(".button-collapse").sideNav();
-      })
