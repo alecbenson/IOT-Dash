@@ -36,6 +36,14 @@
       "main": [
         "scss/font-awesome.scss"
       ]
+    },
+    "bootstrap-material-design": {
+      "main": [
+        "less/bootstrap-material-design.less",
+        "dist/js/material.js",
+        "dist/css/ripples.css",
+        "dist/js/ripples.js"
+      ]
     }
   }
 }

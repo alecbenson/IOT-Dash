@@ -16,6 +16,9 @@ const mainPaths = {
   js: [
     'public/js/directives/**/*.js',
     'public/js/controllers/**/*.js'
+  ],
+  css: [
+    'public/css/app.less'
   ]
 };
 
@@ -24,7 +27,7 @@ gulp.task('bower', function() {
   return plugins.bower();
 });
 
-//Concatenate and minify JS
+//Concatenate and minify iotdash JS
 gulp.task('js', function() {
 	gulp.src(mainPaths.js, {base: base})
 		.pipe(plugins.concat('main.js'))
@@ -59,7 +62,7 @@ gulp.task('vendorCss', function() {
   var cssStream = gulp.src('./bower.json', {base: base})
     .pipe(plugins.mainBowerFiles())
 		.pipe(cssFilter)
-    .pipe(plugins.concat('css-files.less'));
+    .pipe(plugins.concat('css-files.css'));
 
   var mergedStream = merge(lessStream, scssStream, cssStream)
     .pipe(plugins.concat('style.css'))
@@ -69,4 +72,10 @@ gulp.task('vendorCss', function() {
   return mergedStream;
 });
 
-gulp.task('default', ['bower', 'js', 'vendorJs', 'vendorCss']);
+gulp.task('vendorFonts', function () {
+  return gulp.src('./bower_components/**/*.{eot,svg,ttf,woff,woff2}', {base: base})
+    .pipe(plugins.flatten())
+    .pipe(gulp.dest(vendorDest + 'fonts'));
+});
+
+gulp.task('default', ['bower', 'js', 'vendorFonts', 'vendorJs', 'vendorCss']);
