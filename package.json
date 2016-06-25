@@ -29,7 +29,7 @@
     "content-disposition": "^0.5.1",
     "express": "^4.13.4",
     "pi-gpio": "0.0.8",
-    "pug": "^0.1.0"
+    "pug": "^2.0.0-beta3"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

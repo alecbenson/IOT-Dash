@@ -46,7 +46,7 @@ gulp.task('css', function() {
     .pipe(plugins.concat('css-files.less'));
 
   var mergedStream = merge(lessStream, scssStream, cssStream)
-    .pipe(plugins.concat('styles.css'))
+    .pipe(plugins.concat('style.css'))
     .pipe(plugins.uglifycss())
     .pipe(gulp.dest(dest + 'css'));
 
