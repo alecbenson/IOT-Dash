@@ -2,9 +2,9 @@ extends layout
 
 block content
   div(ng-controller="manageDeviceController")
-    p Here is where all the devices are listed out {{message}}
+    p Here is where all the devices are listed out
 
-block controls
-  a.btn.btn-info.btn-fab.btn-right-corner(href='javascript:void(0)')
-    i.material-icons add
-    .ripple-container
+    a.btn.btn-info.btn-fab.btn-right-corner(data-toggle="modal", data-target="#add-device-form")
+      i.material-icons add
+      .ripple-container
+    add-device-form
