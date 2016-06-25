@@ -1,5 +1,4 @@
 //This is the base controller which is responsible for loading all other controllers
-
 var express = require('express');
 var router = express.Router();
 

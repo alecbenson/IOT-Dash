@@ -23,8 +23,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.0.0",
-    "react": "^15.1.0",
-    "font-awesome": "fontawesome#^4.6.3"
+    "jquery": "^1.9.1",
+    "font-awesome": "fontawesome#^4.6.3",
+    "bootstrap": "^3.3.6"
   }
 }
