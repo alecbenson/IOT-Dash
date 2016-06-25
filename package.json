@@ -28,6 +28,8 @@
     "commander": "^2.9.0",
     "content-disposition": "^0.5.1",
     "express": "^4.13.4",
+    "mongodb": "^2.1.18",
+    "mongoose": "^4.5.2",
     "pi-gpio": "0.0.8",
     "pug": "^2.0.0-beta3"
   },

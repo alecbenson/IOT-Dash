@@ -2,9 +2,14 @@
 var express = require('express');
 var router = express.Router();
 
-//Initialize home page
+//home page
 router.get('/', function(req, res) {
-  res.render('index', {title: 'Device Control Panel', message: 'Hello!' });
+  res.render('overview', {title: 'Overview', message: 'Hello!' });
+});
+
+//Device management page
+router.get('/manage', function(req, res) {
+  res.render('manage', {title: 'Management'});
 });
 
 module.exports = router;

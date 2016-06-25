@@ -25,6 +25,17 @@
   "dependencies": {
     "jquery": "^1.9.1",
     "font-awesome": "fontawesome#^4.6.3",
-    "bootstrap": "^3.3.6"
+    "angular": "^1.5.7",
+    "bootstrap-material-design": "^0.5.10"
+  },
+  "resolutions": {
+    "jquery": "^1.9.1"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "scss/font-awesome.scss"
+      ]
+    }
   }
 }

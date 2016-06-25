@@ -2,9 +2,10 @@ html
   head
     title #{title}
     block scripts
+      script(src='/dist/vendor/js/vendor.js')
+      link(rel='stylesheet', href='/dist/vendor/css/style.css')
       script(src='/dist/js/main.js')
-      link(rel='stylesheet', href='/dist/css/style.css')
-  body
+  body(ng-app="iotdash", ng-controller="layoutController", ng-cloak)
     block navbar
       nav.navbar.navbar-default
         .container-fluid
@@ -18,7 +19,7 @@ html
           #navbar-collapse.collapse.navbar-collapse
             ul.nav.navbar-nav
               li
-                a(href='devices') Device List
+                a(href='/') Overview
               li
-                a(href='#') Other Link
+                a(href='/manage') Device Management
       block content
