@@ -4,7 +4,7 @@ var router = express.Router();
 
 //home page
 router.get('/', function(req, res) {
-  res.render('overview', {title: 'Overview', message: 'Hello!' });
+  res.render('overview', {title: 'Overview'});
 });
 
 //Device management page

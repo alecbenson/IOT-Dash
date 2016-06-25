@@ -14,6 +14,7 @@ const cssFilter = plugins.filter('**/*.css', {restore: true});
 
 const mainPaths = {
   js: [
+    'public/js/module.js',
     'public/js/directives/**/*.js',
     'public/js/controllers/**/*.js'
   ],
@@ -31,7 +32,7 @@ gulp.task('bower', function() {
 gulp.task('js', function() {
 	gulp.src(mainPaths.js, {base: base})
 		.pipe(plugins.concat('main.js'))
-		.pipe(plugins.uglify())
+		.pipe(plugins.uglify({mangle: false}))
 		.pipe(gulp.dest(dest + 'js'));
 });
 
