@@ -18,7 +18,7 @@ const mainPaths = {
     'public/js/controllers/**/*.js'
   ],
   css: [
-    'public/css/app.less'
+    'public/css/app.css'
   ]
 };
 
@@ -33,6 +33,14 @@ gulp.task('js', function() {
 		.pipe(plugins.concat('main.js'))
 		.pipe(plugins.uglify())
 		.pipe(gulp.dest(dest + 'js'));
+});
+
+//Concatenate and minify vendor CSS
+gulp.task('css', function() {
+  gulp.src(mainPaths.css, {base: base})
+    .pipe(plugins.concat('app.css'))
+    .pipe(plugins.uglifycss())
+    .pipe(gulp.dest(dest + 'css'));
 });
 
 //Concatenate and minify vendor JS
@@ -78,4 +86,4 @@ gulp.task('vendorFonts', function () {
     .pipe(gulp.dest(vendorDest + 'fonts'));
 });
 
-gulp.task('default', ['bower', 'js', 'vendorFonts', 'vendorJs', 'vendorCss']);
+gulp.task('default', ['bower', 'js', 'css', 'vendorFonts', 'vendorJs', 'vendorCss']);

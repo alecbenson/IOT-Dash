@@ -4,13 +4,14 @@ html
     block scripts
       script(src='/dist/vendor/js/vendor.js')
       link(rel='stylesheet', href='/dist/vendor/css/style.css')
+      link(rel='stylesheet', href='/dist/css/app.css')
       link(rel='stylesheet', href='//fonts.googleapis.com/icon?family=Material+Icons')
       link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700')
       script(src='/dist/js/main.js')
 
   body(ng-app="iotdash", ng-controller="layoutController", ng-cloak)
       block navbar
-        .navbar.navbar-danger
+        .navbar.navbar-info
           .container-fluid
             .navbar-header
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-responsive-collapse')
@@ -63,3 +64,4 @@ html
                     li
                       a(href='javascript:void(0)') Separated link
       block content
+      block controls
