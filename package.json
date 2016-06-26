@@ -31,7 +31,8 @@
     "mongodb": "^2.1.18",
     "mongoose": "^4.5.2",
     "pi-gpio": "0.0.8",
-    "pug": "^2.0.0-beta3"
+    "pug": "^2.0.0-beta3",
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

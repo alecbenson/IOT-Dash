@@ -1,4 +1,5 @@
 var program = require('commander');
+var winston = require('winston');
 
 //Used to specify the port that the application runs on
 program
@@ -17,8 +18,8 @@ app.use(require('./controllers'));
 
 //Listen on the specified port
 app.listen(program.port, function() {
-  console.log("Node process " + process.pid +
-    " is listening on port " + program.port);
+  winston.log('info', 'Node process ' + process.pid +
+    ' is listening on port ' + program.port);
 });
 
 //Exit nicely on SIGTERM
