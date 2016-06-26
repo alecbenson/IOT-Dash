@@ -1,0 +1,16 @@
+#add-input-form.modal.fade(tabindex='-1', style='display: none;')
+  .modal-dialog
+    .modal-content
+      form(ng-submit='postNewInput()')
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h3.modal-title New Input
+        .modal-body
+          .form-group.label-floating
+            label.control-label(for='i1') Name
+            input#i1.form-control(type='text', placeholder='New Input', ,='', ng-model='newInput.name')
+          .form-group.label-floating
+            label.control-label(for='i2') Description
+            input#i2.form-control(type='text', placeholder='What does this input do?', ,='', ng-model='newInput.description')
+        .modal-footer
+          button.btn.btn-primary(type='submit') Submit

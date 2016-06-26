@@ -3,11 +3,6 @@ var express = require('express');
 var router = express.Router();
 var winston = require('winston');
 
-//home page
-router.get('/', function(req, res) {
-  res.render('overview', {title: 'Overview'});
-});
-
 //Partial view API
 router.use('/partials', require('./partials'));
 
@@ -16,5 +11,13 @@ router.use('/devices', require('./devices'));
 
 //Trigger API
 router.use('/triggers', require('./triggers'));
+
+//Input API
+router.use('/inputs', require('./inputs'));
+
+//home page
+router.get('/', function(req, res) {
+  res.redirect('/devices');
+});
 
 module.exports = router;
