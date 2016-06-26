@@ -6,3 +6,17 @@
   margin-bottom: 0;
   z-index: 998;
 }
+.card-block {
+    padding: 10px;
+    margin: 0px;
+    vertical-align: bottom;
+}
+h4.card-title{
+  text-align: center;
+}
+.card-block p{
+    text-align: center;
+}
+ul {
+  list-style-type: none;
+}

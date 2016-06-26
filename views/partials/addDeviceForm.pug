@@ -1,0 +1,22 @@
+#add-device-form.modal.fade(tabindex='-1', style='display: none;')
+  .modal-dialog
+    .modal-content
+      form(ng-submit='postNewDevice()')
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h3.modal-title New Device
+        .modal-body
+          .form-group.label-floating
+            label.control-label(for='i1') Name
+            input#i1.form-control(type='text', placeholder='New Device', ,='', ng-model='newDevice.name')
+          .form-group.label-floating
+            label.control-label(for='i2') Description
+            input#i2.form-control(type='text', placeholder='What does this device do?', ,='', ng-model='newDevice.description')
+          .form-group.label-static
+            label.control-label(for='i3') Local IP Address:
+            input#i3.form-control(type='text', placeholder='127.0.0.1', ,='', ng-model='newDevice.ip')
+          .form-group.label-static
+            label.control-label(for='i4') Trigger:
+            input#i4.form-control(type='text', placeholder='TODO', ,='', ng-model='newDevice.triggers')
+        .modal-footer
+          button.btn.btn-primary(type='submit') Submit

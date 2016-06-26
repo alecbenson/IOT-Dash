@@ -15,4 +15,7 @@ router.get('/manage', function(req, res) {
 //Device API
 router.use('/devices', require('./devices'));
 
+//Partial view API
+router.use('/partials', require('./partials'));
+
 module.exports = router;

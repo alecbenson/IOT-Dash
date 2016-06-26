@@ -2,7 +2,9 @@ extends layout
 
 block content
   div(ng-controller="manageDeviceController")
-    p Here is where all the devices are listed out
+    .card-deck-wrapper
+      .card-deck(ng-repeat='device in devices')
+        iot-device(device)
 
     a.btn.btn-info.btn-fab.btn-right-corner(data-toggle="modal", data-target="#add-device-form")
       i.material-icons add
