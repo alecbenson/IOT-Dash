@@ -1,5 +1,5 @@
 angular.module('iotdash').directive('addDeviceForm', function(){
     return {
-      templateUrl: 'partials/addDeviceForm'
+      templateUrl: '/partials/addDeviceForm'
     };
 });

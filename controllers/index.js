@@ -8,16 +8,13 @@ router.get('/', function(req, res) {
   res.render('overview', {title: 'Overview'});
 });
 
-//Device management page
-router.use('/manage', require('./manage'));
+//Partial view API
+router.use('/partials', require('./partials'));
 
 //Device API
 router.use('/devices', require('./devices'));
 
-//Partial view API
-router.use('/partials', require('./partials'));
-
-//Triggers page
+//Trigger API
 router.use('/triggers', require('./triggers'));
 
 module.exports = router;

@@ -8,14 +8,32 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-//Find by IP address
-router.get('/:ip', function(req, res) {
-  var ip = req.params.ip;
-  if (!ip) {
+//Devices page
+router.get('/', function(req, res) {
+  res.render('devices', {title: 'Devices'});
+});
+
+//Find all
+router.get('/all', function(req, res) {
+  winston.log('info','Getting devices');
+  var query = Device.find();
+  query.exec(function (err, devices) {
+    if (err) {
+      winston.log('error', 'Get devices: ' + err);
+      res.sendStatus(500);
+    }
+    res.json(devices);
+  });
+});
+
+//Find by ID
+router.get('/single/:id', function(req, res) {
+  var id = req.params.id;
+  if (!id) {
     res.sendStatus(400); //You suck at requesting
   }
-  //Query for a device with the given ip
-  var query = Device.findOne({'ip': ip});
+  //Query for a device with the given id
+  var query = Device.findOne({'_id': id});
   query.exec(function (err, device) {
     if (err) {
       winston.log('error', 'Get device: ' + err);
@@ -26,7 +44,7 @@ router.get('/:ip', function(req, res) {
   });
 });
 
-//Delete by id
+//Delete by ID
 router.delete('/:id', function(req, res) {
   var id = req.params.id;
   if (!id) {
@@ -40,18 +58,6 @@ router.delete('/:id', function(req, res) {
       res.sendStatus(404); //Not found
     }
     res.sendStatus(204); //Deleted succesfully
-  });
-});
-
-//Find all
-router.get('/', function(req, res) {
-  var query = Device.find();
-  query.exec(function (err, devices) {
-    if (err) {
-      winston.log('error', 'Get devices: ' + err);
-      res.sendStatus(500);
-    }
-    res.json(devices);
   });
 });
 

@@ -1,5 +1,5 @@
 angular.module('iotdash')
-  .controller('manageDeviceController', function($scope, $http) {
+  .controller('devicesController', function($scope, $http) {
     $scope.newDevice = {};
     $scope.devices = [];
 
@@ -22,7 +22,7 @@ angular.module('iotdash')
 
     //Get device list
     $scope.getDevices = function () {
-      $http.get('/devices').success(function (devices) {
+      $http.get('/devices/all').success(function (devices) {
         $scope.devices = devices;
       }).error(function (err) {
         console.log('Failed to get devices: ' + err);
