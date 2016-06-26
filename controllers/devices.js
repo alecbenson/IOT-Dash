@@ -15,7 +15,6 @@ router.get('/', function(req, res) {
 
 //Find all
 router.get('/all', function(req, res) {
-  winston.log('info','Getting devices');
   var query = Device.find();
   query.exec(function (err, devices) {
     if (err) {

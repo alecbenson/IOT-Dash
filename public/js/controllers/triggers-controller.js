@@ -22,7 +22,7 @@ angular.module('iotdash')
 
     //Get triggers list
     $scope.getTriggers = function () {
-      $http.get('/triggers').success(function (triggers) {
+      $http.get('/triggers/all').success(function (triggers) {
         $scope.triggers = triggers;
       }).error(function (err) {
         console.log('Failed to get triggers: ' + err);

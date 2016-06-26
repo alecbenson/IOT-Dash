@@ -27,7 +27,6 @@ router.get('/all', function(req, res) {
 
 //Find by ID
 router.get('/single/:id', function(req, res) {
-  console.log("Getting single device");
   var id = req.params.id;
   if (!id) {
     res.sendStatus(400); //You suck at requesting
