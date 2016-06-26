@@ -26,6 +26,23 @@ router.get('/:ip', function(req, res) {
   });
 });
 
+//Delete by IP address
+router.delete('/:ip', function(req, res) {
+  var ip = req.params.ip;
+  if (!ip) {
+    res.sendStatus(400); //You suck at requesting
+  }
+  //Query for a device with the given ip
+  var query = Device.findOne({'ip': ip});
+  query.remove().exec(function (err, device) {
+    if (err) {
+      winston.log('error', 'Remove device: ' + err);
+      res.sendStatus(404); //Not found
+    }
+    res.sendStatus(204); //Deleted succesfully
+  });
+});
+
 //Find all
 router.get('/', function(req, res) {
   var query = Device.find();

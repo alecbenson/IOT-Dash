@@ -11,6 +11,14 @@ angular.module('iotdash')
       });
     };
 
+    //Delete a device
+    $scope.deleteDevice = function(ip) {
+      $http.delete('/devices/' + ip, $scope.newDevice)
+        .success( function (data) {
+          $scope.getDevices();
+      });
+    };
+
     //Get device list
     $scope.getDevices = function () {
       $http.get('/devices').success(function (devices) {

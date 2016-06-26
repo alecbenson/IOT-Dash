@@ -1,12 +1,12 @@
-.card-block.col-sm-2
-  .card
-    .card-block
-      h4.card-title {{device.name}}
-      p.card-text
-        | {{device.description}}.
-      h5 IP Address
-        h6 {{device.ip}}
-      h5 Triggers
-        h6 {{device.triggers}}
-      a.btn.btn-info(href='#') Edit
-      a.btn.btn-danger(href='#') Remove
+.card-block.col-sm-4
+  .panel.panel-info
+    .panel-heading
+      h3 {{device.name}}
+    .panel-body
+      a.btn.btn-warning.btn-fab.btn-card.pull-right
+        i.material-icons edit
+      p.card-text {{device.description}}.
+      h5.card-text {{device.ip}}
+      h5.card-text {{device.triggers}}
+    footer.card-footer
+      button.btn.btn-flat.btn-danger(ng-click="deleteDevice(device.ip)") Remove
