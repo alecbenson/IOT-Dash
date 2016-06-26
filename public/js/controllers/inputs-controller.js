@@ -8,7 +8,7 @@ angular.module('iotdash')
       $http.post('/inputs', $scope.newInput)
         .success( function (data) {
           $('#add-input-form').modal('hide');
-          $scope.inputs();
+          $scope.getInputs();
       });
     };
 

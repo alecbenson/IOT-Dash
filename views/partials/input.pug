@@ -1,0 +1,13 @@
+.card-block.col-sm-4
+  .panel.panel-info
+    .panel-heading
+      h3 {{input.name}}
+    .panel-body
+      a.btn.btn-warning.btn-fab.btn-card.pull-right
+        i.material-icons edit
+      p.card-text {{input.description}}.
+
+      code.card-text {{input.requestType}} {{input.fullUrl}}
+      h5.card-text {{input.frequency}}
+    footer.card-footer
+      button.btn.btn-flat.btn-danger(ng-click="deleteInput(input._id)") Remove

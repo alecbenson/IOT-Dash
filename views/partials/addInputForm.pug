@@ -4,7 +4,7 @@
       form(ng-submit='postNewInput()')
         .modal-header
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-          h3.modal-title New Input
+          h3.modal-title Custom Input
         .modal-body
           .form-group.label-floating
             label.control-label(for='i1') Name
@@ -12,5 +12,20 @@
           .form-group.label-floating
             label.control-label(for='i2') Description
             input#i2.form-control(type='text', placeholder='What does this input do?', ,='', ng-model='newInput.description')
+          .form-group.label-floating
+            label.control-label(for='i3') Request Type
+            select#i3.form-control(ng-model='newInput.requestType')
+              option GET
+              option POST
+              option PUT
+          .form-group.label-floating
+            label.control-label(for='i4') URL
+            input#i4.form-control(type='url', placeholder='What is the URL for the request?', ,='', ng-model='newInput.url')
+          .form-group.label-floating
+            label.control-label(for='i6') API Key
+            input#i6.form-control(type='text', placeholder='What is the API key? (blank if none)', ,='', ng-model='newInput.apikey')
+          .form-group.label-floating
+            label.control-label(for='i6') Frequency
+            input#i6.form-control(type='text', placeholder='How frequently should this be checked?', ,='', ng-model='newInput.frequency')
         .modal-footer
           button.btn.btn-primary(type='submit') Submit
