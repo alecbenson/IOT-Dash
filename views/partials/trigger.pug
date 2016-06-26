@@ -1,0 +1,11 @@
+.card-block.col-lg-12
+  .panel.panel-info
+    .panel-heading
+      h3 {{trigger.name}}
+    .panel-body
+      a.btn.btn-warning.btn-fab.btn-card.pull-right
+        i.material-icons edit
+      p.card-text {{trigger.description}}.
+      h5.card-text {{trigger.sources}}
+    footer.card-footer
+      button.btn.btn-flat.btn-danger(ng-click="deleteTrigger(trigger._id)") Remove

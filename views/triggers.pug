@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div(ng-controller="triggersController")
+    .row
+      .col-lg-3
+      .col-lg-6
+        .card
+          .input-group
+            span.input-group-addon
+              i.material-icons search
+            input.form-control(type='text', placeholder='Search for a trigger...')
+      .col-lg-3
+    .row
+      .card-deck-wrapper
+        .card-deck(ng-repeat='trigger in triggers')
+          iot-trigger(device)
+
+
+    a.btn.btn-info.btn-fab.btn-raised.btn-right-corner(data-toggle="modal", data-target="#add-trigger-form")
+      i.material-icons add
+      .ripple-container

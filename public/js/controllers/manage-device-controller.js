@@ -12,8 +12,8 @@ angular.module('iotdash')
     };
 
     //Delete a device
-    $scope.deleteDevice = function(ip) {
-      $http.delete('/devices/' + ip, $scope.newDevice)
+    $scope.deleteDevice = function(id) {
+      $http.delete('/devices/' + id)
         .success( function (data) {
           $scope.getDevices();
       });

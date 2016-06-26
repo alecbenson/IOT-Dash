@@ -26,14 +26,14 @@ router.get('/:ip', function(req, res) {
   });
 });
 
-//Delete by IP address
-router.delete('/:ip', function(req, res) {
-  var ip = req.params.ip;
-  if (!ip) {
+//Delete by id
+router.delete('/:id', function(req, res) {
+  var id = req.params.id;
+  if (!id) {
     res.sendStatus(400); //You suck at requesting
   }
-  //Query for a device with the given ip
-  var query = Device.findOne({'ip': ip});
+  //Query for a device with the given id
+  var query = Device.findOne({'_id': id});
   query.remove().exec(function (err, device) {
     if (err) {
       winston.log('error', 'Remove device: ' + err);

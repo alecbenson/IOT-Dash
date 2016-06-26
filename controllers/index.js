@@ -7,15 +7,17 @@ var winston = require('winston');
 router.get('/', function(req, res) {
   res.render('overview', {title: 'Overview'});
 });
+
 //Device management page
-router.get('/manage', function(req, res) {
-  res.render('manage', {title: 'Management'});
-});
+router.use('/manage', require('./manage'));
 
 //Device API
 router.use('/devices', require('./devices'));
 
 //Partial view API
 router.use('/partials', require('./partials'));
+
+//Triggers page
+router.use('/triggers', require('./triggers'));
 
 module.exports = router;

@@ -23,6 +23,9 @@ ul {
 .card-image.solid-color {
   background-color: #03a9f4;
 }
+.progress.deviceStatus {
+  margin-bottom: -10px;
+}
 .btn.btn-fab.btn-card {
   margin-top: -50px;
 
