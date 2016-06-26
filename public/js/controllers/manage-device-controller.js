@@ -1,6 +1,7 @@
 angular.module('iotdash')
   .controller('manageDeviceController', function($scope, $http) {
     $scope.newDevice = {};
+    $scope.devices = [];
 
     //Post a new device
     $scope.postNewDevice = function() {
