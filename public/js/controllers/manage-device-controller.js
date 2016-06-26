@@ -1,9 +1,15 @@
 angular.module('iotdash')
-  .controller('manageDeviceController', function($scope) {
+  .controller('manageDeviceController', function($scope, $http) {
 
     console.log('Manage controler running');
-    $scope.addDevice = function() {
-        console.log('Adding device');
+
+    //Post a new device
+    $scope.newDevice = {};
+    $scope.postNewDevice = function() {
+      $http.post('/devices', $scope.newDevice)
+        .success( function (data) {
+          $('#add-device-form').modal('hide');
+      });
     };
 
   });

@@ -1,5 +1,7 @@
 var program = require('commander');
 var winston = require('winston');
+var bodyParser = require('body-parser');
+var db = require('./db');
 
 //Used to specify the port that the application runs on
 program
@@ -16,6 +18,9 @@ app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
 app.use(require('./controllers'));
 
+//Connect to mongo
+db.connect();
+
 //Listen on the specified port
 app.listen(program.port, function() {
   winston.log('info', 'Node process ' + process.pid +
@@ -25,6 +30,8 @@ app.listen(program.port, function() {
 //Exit nicely on SIGTERM
 process.on('SIGTERM', function() {
   server.close(function() {
+    winston.log('info', 'bye');
+    db.close();
     process.exit(0);
   });
 });
