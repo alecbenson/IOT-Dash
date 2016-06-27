@@ -24,12 +24,14 @@
   },
   "homepage": "https://github.com/alecbenson/PowerSwitch#readme",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "body-parser": "^1.15.0",
     "commander": "^2.9.0",
     "content-disposition": "^0.5.1",
     "express": "^4.13.4",
     "mongodb": "^2.1.18",
     "mongoose": "^4.5.2",
+    "node-cron": "^1.1.1",
     "pi-gpio": "0.0.8",
     "pug": "^2.0.0-beta3",
     "winston": "^2.2.0"

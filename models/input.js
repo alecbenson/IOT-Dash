@@ -31,10 +31,6 @@ var input = new mongoose.Schema({
 	apikey: {
 		type: String,
 		required: false
-	},
-	frequency: {
-		type: Number,
-		required: true
 	}
 }, schemaOpts);
 

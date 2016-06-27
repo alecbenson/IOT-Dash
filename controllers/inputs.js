@@ -69,7 +69,6 @@ router.post('/', function (req, res) {
   input.requestType = req.body.requestType;
   input.url = req.body.url;
   input.apikey = req.body.apikey;
-  input.frequency = req.body.frequency;
 
   //Save the input to the DB
   input.save(function (err) {

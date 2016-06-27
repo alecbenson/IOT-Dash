@@ -4,11 +4,11 @@
       form(ng-submit='postNewInput()')
         .modal-header
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
-          h3.modal-title Custom Input
+          h3.modal-title Custom Input Source
         .modal-body
           .form-group.label-floating
             label.control-label(for='i1') Name
-            input#i1.form-control(type='text', placeholder='New Input', ,='', ng-model='newInput.name')
+            input#i1.form-control(type='text', placeholder='Custom Input Source', ,='', ng-model='newInput.name')
           .form-group.label-floating
             label.control-label(for='i2') Description
             input#i2.form-control(type='text', placeholder='What does this input do?', ,='', ng-model='newInput.description')
@@ -24,8 +24,5 @@
           .form-group.label-floating
             label.control-label(for='i6') API Key
             input#i6.form-control(type='text', placeholder='What is the API key? (blank if none)', ,='', ng-model='newInput.apikey')
-          .form-group.label-floating
-            label.control-label(for='i6') Frequency
-            input#i6.form-control(type='text', placeholder='How frequently should this be checked?', ,='', ng-model='newInput.frequency')
         .modal-footer
           button.btn.btn-primary(type='submit') Submit
