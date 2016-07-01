@@ -25,9 +25,10 @@ ul {
 }
 .progress.deviceStatus {
   margin-bottom: -10px;
+  margin-left: -15px;
 }
 .btn.btn-fab.btn-card {
-  margin-top: -50px;
+  margin-top: -40px;
 
 }
 .pad-bottom-100 {
