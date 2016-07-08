@@ -87,4 +87,12 @@ gulp.task('vendorFonts', function () {
     .pipe(gulp.dest(vendorDest + 'fonts'));
 });
 
-gulp.task('default', ['bower', 'js', 'css', 'vendorFonts', 'vendorJs', 'vendorCss']);
+//Lint everything using elsint
+gulp.task('lint', function() {
+  return gulp.src(['*/**.js','!node_modules/**', '!bower_components/**'])
+    .pipe(plugins.eslint())
+    .pipe(plugins.eslint.format())
+    .pipe(plugins.eslint.failAfterError());
+});
+
+gulp.task('default', ['bower', 'lint', 'js', 'css', 'vendorFonts', 'vendorJs', 'vendorCss']);

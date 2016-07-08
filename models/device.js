@@ -1,3 +1,5 @@
+'use strict';
+
 var mongoose = require('mongoose');
 
 var device = new mongoose.Schema({
@@ -13,11 +15,11 @@ var device = new mongoose.Schema({
 	ip: {
 		type: String,
 		required: true,
-    unique: true
+		unique: true
 	},
-  triggers: [{
+	triggers: [{
 		type: String,
-		required: true,
+		required: true
 	}]
 });
 
