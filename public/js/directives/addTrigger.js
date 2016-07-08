@@ -1,5 +1,7 @@
-angular.module('iotdash').directive('addTriggerForm', function(){
-    return {
-      templateUrl: '/partials/addTriggerForm'
-    };
+'use strict';
+
+angular.module('iotdash').directive('addTriggerForm', function () {
+	return {
+		templateUrl: '/partials/addTriggerForm'
+	};
 });

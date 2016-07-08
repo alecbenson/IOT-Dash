@@ -1,5 +1,7 @@
-angular.module('iotdash').directive('iotDevice', function(){
-    return {
-      templateUrl: '/partials/device'
-    };
+'use strict';
+
+angular.module('iotdash').directive('iotDevice', function () {
+	return {
+		templateUrl: '/partials/device'
+	};
 });

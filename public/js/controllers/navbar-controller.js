@@ -1,3 +1,5 @@
+'use strict';
 angular.module('iotdash')
-  .controller('navbarController', function($scope) {
-  });
+	.controller('navbarController', function ($scope) {
+		$scope.title = 'IOT-DASH';
+	});

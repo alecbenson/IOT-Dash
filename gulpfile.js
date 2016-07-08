@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 // Include plugins
 var plugins = require("gulp-load-plugins")();
@@ -113,7 +115,7 @@ gulp.task('vendorFonts', function () {
 
 //Lint everything using elsint
 gulp.task('lint', function () {
-	return gulp.src(['db.js', 'app.js', '*/**.js', '!node_modules/**', '!bower_components/**'])
+	return gulp.src(['**/**.js', '!gulpfile.js', '!public/dist/**', '!node_modules/**', '!bower_components/**'])
 		.pipe(plugins.eslint())
 		.pipe(plugins.eslint.format())
 		.pipe(plugins.eslint.failAfterError());
