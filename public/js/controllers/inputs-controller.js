@@ -5,6 +5,7 @@ angular.module('iotdash')
 	.controller('inputsController', function ($scope, $http) {
 		$scope.newInput = {};
 		$scope.inputs = [];
+		$scope.newInput.parameters = [{}];
 
 		//Post a new input
 		$scope.postNewInput = function () {
@@ -32,6 +33,11 @@ angular.module('iotdash')
 				$scope.inputs = [];
 			});
 		};
+
+		//Adds a new input form
+		$scope.addParameter = function () {
+			$scope.newInput.parameters.push({});
+		}
 
 		//Update input list every minute
 		setInterval(function () {

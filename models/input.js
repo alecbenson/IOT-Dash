@@ -30,13 +30,9 @@ var input = new mongoose.Schema({
 		type: String,
 		required: false
 	},
-	apikey: {
-		type: String,
+	params: {
+		type: Object,
 		required: false
-	},
-	active: {
-		type: Boolean,
-		required: true
 	}
 }, schemaOpts);
 

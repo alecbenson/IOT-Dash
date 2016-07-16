@@ -51,14 +51,15 @@ DataProvider.prototype.getWeather = function (zip, key) {
 }
 
 //Use freegeoip to approximate location
-DataProvider.prototype.getLocation = function () {
+DataProvider.prototype.getLocation = function (ip) {
 	var base = 'http://freegeoip.net/json/';
-	return this.getRequest(base);
+	var fullURL = ip ? base + encodeURIComponent(ip) : base
+	return this.getRequest(fullURL);
 }
 
 //Return a promise to date and time
 DataProvider.prototype.getDateTime = function () {
-	return new Promise(function (resolve, reject) {
+	return new Promise(function (resolve) {
 		var d = new Date();
 		var dayMap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 		var values = {
