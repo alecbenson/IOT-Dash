@@ -5,10 +5,14 @@ angular.module('iotdash')
 	.controller('inputsController', function ($scope, $http) {
 		$scope.newInput = {};
 		$scope.inputs = [];
-		$scope.newInput.params = [{}];
+		$scope.newInput.params = [];
 
 		//Post a new input
 		$scope.postNewInput = function () {
+			//Filter empty keys or values
+			$scope.newInput.params = $scope.newInput.params.filter(function (val) {
+				return val.hasOwnProperty('key') && val.hasOwnProperty('value');
+			});
 			$http.post('/inputs', $scope.newInput)
 				.success(function () {
 					$('#add-input-form').modal('hide');

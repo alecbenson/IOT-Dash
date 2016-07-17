@@ -16,6 +16,9 @@ router.use('/triggers', require('./triggers'));
 //Input API
 router.use('/inputs', require('./inputs'));
 
+//DateTime API
+router.use('/datetime', require('./dateTime'));
+
 //home page
 router.get('/', function (req, res) {
 	res.redirect('/devices');
