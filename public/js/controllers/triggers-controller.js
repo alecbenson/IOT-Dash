@@ -4,6 +4,7 @@ angular.module('iotdash')
 	.controller('triggersController', function ($scope, $http, $filter) {
 		$scope.newTrigger = {};
 		$scope.triggers = [];
+		$scope.inputs = [];
 		$scope.filteredTriggers = [];
 		$scope.triggerFilter = '';
 
@@ -36,6 +37,16 @@ angular.module('iotdash')
 			});
 		};
 
+		//Get inputs list
+		$scope.getInputs = function () {
+			$http.get('/inputs/all').success(function (inputs) {
+				$scope.inputs = inputs;
+			}).error(function (err) {
+				console.log('Failed to get inputs: ' + err);
+				$scope.inputs = [];
+			});
+		};
+
 		//Filter through $scope.triggers and put results into $scope.filteredTriggers
 		function filterTriggers() {
 			$scope.filteredTriggers = $filter('filter')($scope.triggers, {
@@ -48,9 +59,13 @@ angular.module('iotdash')
 			filterTriggers();
 		});
 
-		//Update trigger list every minute
+		//Update trigger/input list every minute
 		setInterval(function () {
+			$scope.getInputs();
 			$scope.getTriggers();
 		}, 60 * 1000);
+		//Set default value
+		$scope.getInputs();
 		$scope.getTriggers();
+
 	});

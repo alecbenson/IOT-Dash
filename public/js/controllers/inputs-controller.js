@@ -6,6 +6,7 @@ angular.module('iotdash')
 		$scope.newInput = {};
 		$scope.inputs = [];
 		$scope.newInput.params = [];
+		$scope.methods = ['GET', 'POST'];
 
 		//Post a new input
 		$scope.postNewInput = function () {

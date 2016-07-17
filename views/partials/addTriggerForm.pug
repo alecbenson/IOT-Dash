@@ -12,5 +12,8 @@
           .form-group.label-floating
             label.control-label(for='i2') Description
             input#i2.form-control(type='text', placeholder='What does this trigger do?', ,='', ng-model='newTrigger.description')
+          .form-group.label-floating
+            label.control-label Input
+            select#i3.form-control(ng-model='newTrigger.input', ng-options='input.name for input in inputs')
         .modal-footer
           button.btn.btn-primary(type='submit') Submit
