@@ -6,7 +6,12 @@
       a.btn.btn-warning.btn-fab.btn-card.pull-right
         i.material-icons edit
       p.card-text {{input.description}}.
-
       code.card-text {{input.requestType}} {{input.fullUrl}}
+
+      h5(ng-show='input.params.length') Parameters
+        table.table.table-condensed.table-responsive
+          tr(ng-repeat='p in input.params')
+            td {{p.key}}
+            td {{p.value}}
     footer.card-footer
       button.btn.btn-flat.btn-danger(ng-click="deleteInput(input._id)") Remove
