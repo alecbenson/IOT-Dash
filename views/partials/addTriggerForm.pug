@@ -15,5 +15,15 @@
           .form-group.label-floating
             label.control-label Input
             select#i3.form-control(ng-model='newTrigger.input', ng-options='input.name for input in inputs')
+          label(ng-show='newTrigger.conditions.length') Condition(s)
+            .form-group.form-group-sm(ng-repeat='c in newTrigger.conditions')
+              div.row
+                div.col-xs-4
+                  input.form-control(type='text', placeholder='Key', ng-model='newTrigger.conditions[$index].key')
+                div.col-xs-4
+                  select.form-control(ng-model='newTrigger.conditions[$index].operator', ng-options='o as o for o in operators')
+                div.col-xs-4
+                  input.form-control(type='text', placeholder='Value', ng-model='newTrigger.conditions[$index].value')
         .modal-footer
+          button.btn.btn-success(type='button', ng-click='addCondition()') Add Condition
           button.btn.btn-primary(type='submit') Submit

@@ -39,8 +39,7 @@ angular.module('iotdash')
 			});
 		};
 
-
-		//Adds a new input form
+		//Adds a new input parameter
 		$scope.addParameter = function () {
 			$scope.newInput.params.push({});
 		}

@@ -4,9 +4,11 @@ angular.module('iotdash')
 	.controller('triggersController', function ($scope, $http, $filter) {
 		$scope.newTrigger = {};
 		$scope.triggers = [];
+		$scope.newTrigger.conditions = [];
 		$scope.inputs = [];
 		$scope.filteredTriggers = [];
 		$scope.triggerFilter = '';
+		$scope.operators = ['LESS THAN', 'GREATER THAN', 'EQUALS', 'NOT EQUALS', 'CONTAINS']
 
 		//Post a new trigger
 		$scope.postNewTrigger = function () {
@@ -52,6 +54,12 @@ angular.module('iotdash')
 			$scope.filteredTriggers = $filter('filter')($scope.triggers, {
 				$: $scope.triggerFilter
 			});
+		}
+
+		//Adds a new input condition
+		$scope.addCondition = function () {
+			$scope.newTrigger.conditions.push({});
+			console.log($scope.newTrigger.conditions);
 		}
 
 		//Run whenever the search box is typed into
