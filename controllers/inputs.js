@@ -78,7 +78,7 @@ router.post('/', function (req, res) {
 	input.description = req.body.description;
 	input.requestType = req.body.requestType;
 	input.url = req.body.url;
-	input.apikey = req.body.apikey;
+	input.params = req.body.params;
 
 	//Save the input to the DB
 	input.save(function (err) {

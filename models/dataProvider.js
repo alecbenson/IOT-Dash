@@ -2,39 +2,66 @@
 
 var request = require('request');
 var Promise = require('bluebird');
+var winston = require('winston');
 
+var DataProvider = function (input, type) {
+	if (!input) {
+		winston.log('error', 'No input object provided to data provider');
+		return;
+	}
 
-var DataProvider = function (mongoInput) {
-	this.input = mongoInput;
+	switch (type) {
+	case 'location':
+		this.action = function () {
+			return this.getLocation(input.params.ip);
+		};
+		break;
+	case 'date':
+		this.action = function () {
+			return this.getDateTime();
+		};
+		break;
+	case 'weather':
+		this.action = function () {
+			return this.getWeather(input.params.zip, input.params.key);
+		};
+		break;
+	default:
+		this.action = function () {
+			return this.request(input.requestType, input.url, input.params, 2000);
+		};
+		break;
+	}
 };
+
+DataProvider.prototype.doAction = function () {
+	return this.action();
+}
 
 //Helper function to generate query params based on a passed in object
 function _objToQueryParams(params) {
 	var parts = [];
-	for (var i in params) {
-		if (params.hasOwnProperty(i)) {
-			var p = encodeURIComponent(i) + '=' + encodeURIComponent(params[i]);
-			parts.push(p);
-		}
-	}
+	params.forEach(function (keyVal) {
+		var p = encodeURIComponent(keyVal.key) + '=' + encodeURIComponent(keyVal.value);
+		parts.push(p);
+	});
 	return '?' + parts.join('&');
 }
 
-//Issue a git request with the given params object and the specified timeout period
-DataProvider.prototype.getRequest = function (url, params, timeout) {
+//Issue a request with the given params object and the specified timeout period
+DataProvider.prototype.request = function (type, url, params, timeout) {
 	var fullUrl = params ? url + _objToQueryParams(params) : url;
-	console.log(fullUrl);
 	//Issue request
 	return new Promise(function (resolve, reject) {
 		request({
 			uri: fullUrl,
-			method: 'GET',
+			method: type,
 			timeout: (timeout || 2000)
 		}, function (err, response, body) {
 			if (!err) {
 				resolve(body);
 			} else {
-				reject(new Error('GET REQUEST: ' + err));
+				reject(new Error(type + ' REQUEST: ' + err));
 			}
 		});
 	});
@@ -47,14 +74,14 @@ DataProvider.prototype.getWeather = function (zip, key) {
 		q: zip,
 		appid: key
 	}
-	return this.getRequest(base, params);
+	return this.getRequest('GET', base, params);
 }
 
 //Use freegeoip to approximate location
 DataProvider.prototype.getLocation = function (ip) {
 	var base = 'http://freegeoip.net/json/';
 	var fullURL = ip ? base + encodeURIComponent(ip) : base
-	return this.getRequest(fullURL);
+	return this.request('GET', fullURL);
 }
 
 //Return a promise to date and time

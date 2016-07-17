@@ -21,13 +21,13 @@
           .form-group.label-floating
             label.control-label(for='i4') URL
             input#i4.form-control(type='url', placeholder='What is the URL for the request?', ,='', ng-model='newInput.url')
-          label(ng-show='newInput.parameters.length') Parameter(s)
-            .form-group.form-group-sm(ng-repeat='input in newInput.parameters')
+          label(ng-show='newInput.params.length') Parameter(s)
+            .form-group.form-group-sm(ng-repeat='input in newInput.params')
               div.row
                 div.col-xs-6
-                  input.form-control(type='text', placeholder='Key', ng-model='newInput.parameters[$index].key')
+                  input.form-control(type='text', placeholder='Key', ng-model='newInput.params[$index].key')
                 div.col-xs-6
-                  input.form-control(type='text', placeholder='Value', ng-model='newInput.parameters[$index].value')
+                  input.form-control(type='text', placeholder='Value', ng-model='newInput.params[$index].value')
         .modal-footer
           button.btn.btn-success(type='button', ng-click='addParameter()') Add Parameter
           button.btn.btn-primary(type='submit') Submit
