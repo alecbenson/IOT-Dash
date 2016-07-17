@@ -30,10 +30,11 @@ var input = new mongoose.Schema({
 		type: String,
 		required: false
 	},
-	params: {
-		type: Object,
+	params: [{
+		key: String,
+		value: String,
 		required: false
-	}
+	}]
 }, schemaOpts);
 
 //Get the full request for displaying

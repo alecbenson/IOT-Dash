@@ -18,6 +18,9 @@ exports.connect = function () {
 	}
 };
 
+//Use bluebird promises
+mongoose.Promise = require('bluebird');
+
 //Exit the connection
 exports.close = function () {
 	mongoose.connection.close();

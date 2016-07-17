@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
 
 //Find all
 router.get('/all', function (req, res) {
-	var query = Trigger.find();
+	var query = Trigger.find().populate('input');
 	query.exec(function (err, triggers) {
 		if (err) {
 			winston.log('error', 'Get triggers: ' + err);
@@ -37,10 +37,10 @@ router.get('/single/:id', function (req, res) {
 	if (!id) {
 		res.sendStatus(400); //You suck at requesting
 	}
-	//Query for a trigger with the given id
+	//Query for a trigger with the given id, populate the input reference
 	var query = Trigger.findOne({
 		'_id': id
-	});
+	}).populate('input');
 	query.exec(function (err, trigger) {
 		if (err) {
 			winston.log('error', 'Get trigger: ' + err);
@@ -76,6 +76,8 @@ router.post('/', function (req, res) {
 	var trigger = new Trigger();
 	trigger.name = req.body.name;
 	trigger.description = req.body.description;
+	trigger.input = req.body.input._id;
+	trigger.conditions = req.body.conditions;
 
 	//Save the trigger to the DB
 	trigger.save(function (err) {
