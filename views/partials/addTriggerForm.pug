@@ -20,10 +20,12 @@
               div.row
                 div.col-xs-4
                   input.form-control(type='text', placeholder='Key', ng-model='newTrigger.conditions[$index].key')
-                div.col-xs-4
+                div.col-xs-3
                   select.form-control(ng-model='newTrigger.conditions[$index].operator', ng-options='o as o for o in operators')
-                div.col-xs-4
+                div.col-xs-3
                   input.form-control(type='text', placeholder='Value', ng-model='newTrigger.conditions[$index].value')
+                div.col-xs-2
+                  select.form-control(ng-model='newTrigger.conditions[$index].opchain', ng-options='p as p for p in opchains', ng-show='($index + 1) < newTrigger.conditions.length')
         .modal-footer
           button.btn.btn-success(type='button', ng-click='addCondition()') Add Condition
           button.btn.btn-primary(type='submit') Submit

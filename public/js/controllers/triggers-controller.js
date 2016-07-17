@@ -8,7 +8,8 @@ angular.module('iotdash')
 		$scope.inputs = [];
 		$scope.filteredTriggers = [];
 		$scope.triggerFilter = '';
-		$scope.operators = ['LESS THAN', 'GREATER THAN', 'EQUALS', 'NOT EQUALS', 'CONTAINS']
+		$scope.operators = ['LESS THAN', 'GREATER THAN', 'EQUALS', 'NOT EQUALS', 'CONTAINS'];
+		$scope.opchains = ['AND', 'OR'];
 
 		//Post a new trigger
 		$scope.postNewTrigger = function () {
