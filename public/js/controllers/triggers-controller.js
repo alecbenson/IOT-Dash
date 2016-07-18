@@ -59,14 +59,25 @@ angular.module('iotdash')
 
 		//Adds a new input condition
 		$scope.addCondition = function () {
+			//Set the opchain of the previous condition
+			if ($scope.newTrigger.conditions.length) {
+				var last = $scope.newTrigger.conditions.length - 1;
+				$scope.newTrigger.conditions[last].opchain = $scope.opchains[0];
+			}
+			//Push the new condition to the array
 			$scope.newTrigger.conditions.push({});
-			console.log($scope.newTrigger.conditions);
 		}
 
 		//Run whenever the search box is typed into
 		$scope.$watch('triggerFilter', function () {
 			filterTriggers();
 		});
+
+		//We only want to show the opchain input field if the
+		//given condition is not the last one
+		$scope.showOpchain = function (index) {
+			return (index + 1) < $scope.newTrigger.conditions.length
+		}
 
 		//Update trigger/input list every minute
 		setInterval(function () {

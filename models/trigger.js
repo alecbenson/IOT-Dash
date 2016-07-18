@@ -38,7 +38,7 @@ var trigger = new mongoose.Schema({
 trigger.virtual('summary').get(function () {
 	var result = 'Triggers when ';
 	this.conditions.forEach(function (condition) {
-		result += condition.key + ' is ' + condition.operator + ' ' + condition.value
+		result += condition.key + ' ' + condition.operator + ' ' + condition.value
 		if (condition.opchain) {
 			result += ' ' + condition.opchain + ' ';
 		}

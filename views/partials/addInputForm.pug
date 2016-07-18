@@ -8,16 +8,16 @@
         .modal-body
           .form-group.label-floating
             label.control-label Name
-            input#i1.form-control(type='text', placeholder='Custom Input Source', ,='', ng-model='newInput.name')
+            input.form-control(type='text', placeholder='Custom Input Source', ng-model='newInput.name')
           .form-group.label-floating
             label.control-label Description
-            input#i2.form-control(type='text', placeholder='What does this input do?', ,='', ng-model='newInput.description')
+            input.form-control(type='text', placeholder='What does this input do?', ng-model='newInput.description')
           .form-group.label-floating
             label.control-label Request Type
-            select#i3.form-control(ng-init='newInput.requestType = methods[0]', ng-model='newInput.requestType', ng-options='m as m for m in methods')
+            select.form-control(ng-init='newInput.requestType = methods[0]', ng-model='newInput.requestType', ng-options='m as m for m in methods')
           .form-group.label-floating
-            label.control-label(for='i4') URL
-            input#i4.form-control(type='text', placeholder='What is the URL for the request?', ,='', ng-model='newInput.url')
+            label.control-label URL
+            input.form-control(type='text', placeholder='What is the URL for the request?', ng-model='newInput.url')
           label(ng-show='newInput.params.length') Parameter(s)
             .form-group.form-group-sm(ng-repeat='input in newInput.params')
               div.row
