@@ -78,18 +78,25 @@ router.post('/', function (req, res) {
 	trigger.description = req.body.description;
 	trigger.input = req.body.input._id;
 	trigger.conditions = req.body.conditions;
+	trigger._id = req.body._id;
+
+	var query = {
+		_id: req.body._id
+	};
 
 	//Save the trigger to the DB
-	trigger.save(function (err) {
+	Trigger.update(query, trigger, {
+		upsert: true
+	}, function (err) {
 		if (err) {
-			winston.log('error', 'Post new trigger: ' + err);
+			winston.log('error', 'Post trigger: ' + err);
 			res.send(err);
 			return;
 		}
-		winston.log('info', 'Post new trigger: ' + 'success!');
+		winston.log('info', 'Post trigger: ' + 'success!');
 		res.send({
 			status: 201,
-			response: 'Created'
+			response: 'Upserted'
 		});
 	});
 });

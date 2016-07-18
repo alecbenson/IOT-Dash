@@ -3,7 +3,7 @@
     .panel-heading
       h3 {{trigger.name}}
     .panel-body
-      a.btn.btn-warning.btn-fab.btn-card.pull-right
+      a.btn.btn-warning.btn-fab.btn-card.pull-right(data-toggle='modal', data-target='#add-trigger-form', ng-click='editTrigger(trigger)')
         i.material-icons edit
       p.card-text {{trigger.description}}.
       h5.card-text {{trigger.summary}}

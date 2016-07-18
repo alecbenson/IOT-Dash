@@ -94,7 +94,7 @@ router.delete('/:id', function (req, res) {
 	});
 });
 
-//Insert a new input
+//Update or insert a new input
 router.post('/', function (req, res) {
 	winston.log('info', req.body);
 	var input = new Input();
@@ -103,18 +103,25 @@ router.post('/', function (req, res) {
 	input.requestType = req.body.requestType;
 	input.url = req.body.url;
 	input.params = req.body.params;
+	input._id = req.body._id;
+
+	var query = {
+		_id: req.body.id
+	};
 
 	//Save the input to the DB
-	input.save(function (err) {
+	Input.update(query, input, {
+		upsert: true
+	}, function (err) {
 		if (err) {
-			winston.log('error', 'Post new input: ' + err);
+			winston.log('error', 'Post input: ' + err);
 			res.send(err);
 			return;
 		}
-		winston.log('info', 'Post new input: ' + 'success!');
+		winston.log('info', 'Post input: ' + 'success!');
 		res.send({
 			status: 201,
-			response: 'Created'
+			response: 'Upserted'
 		});
 	});
 });

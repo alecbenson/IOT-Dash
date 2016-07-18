@@ -18,6 +18,7 @@ angular.module('iotdash')
 				.success(function () {
 					$('#add-input-form').modal('hide');
 					$scope.getInputs();
+					$scope.newInput = {};
 				});
 		};
 
@@ -52,6 +53,11 @@ angular.module('iotdash')
 				input.response = err;
 			});
 		};
+
+		//Set the new input object to the specified input
+		$scope.editInput = function (input) {
+			$scope.newInput = input;
+		}
 
 		//Update input list every minute
 		setInterval(function () {

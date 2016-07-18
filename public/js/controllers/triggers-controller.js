@@ -17,6 +17,7 @@ angular.module('iotdash')
 				.success(function () {
 					$('#add-trigger-form').modal('hide');
 					$scope.getTriggers();
+					$scope.newTrigger = {};
 				});
 		};
 
@@ -77,6 +78,11 @@ angular.module('iotdash')
 		//given condition is not the last one
 		$scope.showOpchain = function (index) {
 			return (index + 1) < $scope.newTrigger.conditions.length
+		}
+
+		//Set the new trigger object to the specified trigger'
+		$scope.editTrigger = function (input) {
+			$scope.newTrigger = input;
 		}
 
 		//Update trigger/input list every minute

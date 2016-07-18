@@ -3,7 +3,7 @@
     .panel-heading
       h3 {{input.name}}
     .panel-body
-      a.btn.btn-warning.btn-fab.btn-card.pull-right
+      a.btn.btn-warning.btn-fab.btn-card.pull-right(data-toggle='modal', data-target='#add-input-form', ng-click='editInput(input)')
         i.material-icons edit
       p.card-text {{input.description}}.
       pre.prettyprint.lang-js {{input.requestType}} {{input.fullUrl}}
