@@ -5,6 +5,7 @@ var router = express.Router();
 var winston = require('winston');
 var bodyParser = require('body-parser');
 var Input = require('../models/input');
+var DataProvider = require('../models/dataProvider');
 
 //Get body-parser data
 router.use(bodyParser.urlencoded({
@@ -48,6 +49,29 @@ router.get('/single/:id', function (req, res) {
 		}
 		//Send the input back
 		res.json(input);
+	});
+});
+
+//Run the given input
+router.get('/single/:id/data', function (req, res) {
+	var id = req.params.id;
+	if (!id) {
+		res.sendStatus(400); //You suck at requesting
+	}
+	//Query for a input with the given id
+	var query = Input.findOne({
+		'_id': id
+	});
+	query.exec(function (err, input) {
+		if (err) {
+			winston.log('error', 'Get input: ' + err);
+			res.sendStatus(404); //Not found
+		}
+		//Get the data
+		var provider = new DataProvider(input);
+		provider.doAction().then(function (data) {
+			res.json(data);
+		})
 	});
 });
 

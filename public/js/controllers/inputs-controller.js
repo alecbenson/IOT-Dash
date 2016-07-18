@@ -44,6 +44,15 @@ angular.module('iotdash')
 			$scope.newInput.params.push({});
 		}
 
+		//Retrieves data from the input
+		$scope.getInputData = function (input) {
+			$http.get('/inputs/single/' + input._id + '/data').success(function (data) {
+				input.response = data;
+			}).error(function (err) {
+				input.response = err;
+			});
+		};
+
 		//Update input list every minute
 		setInterval(function () {
 			$scope.getInputs();

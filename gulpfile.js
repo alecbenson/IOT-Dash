@@ -56,7 +56,7 @@ gulp.task('css', function () {
 			base: base
 		})
 		.pipe(plugins.concat('app.css'))
-		//.pipe(plugins.uglifycss())
+		.pipe(plugins.uglifycss())
 		.pipe(gulp.dest(dest + 'css'));
 });
 
