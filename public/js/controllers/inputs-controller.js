@@ -3,10 +3,14 @@
 
 angular.module('iotdash')
 	.controller('inputsController', function ($scope, $http) {
-		$scope.newInput = {};
 		$scope.inputs = [];
-		$scope.newInput.params = [];
 		$scope.methods = ['GET', 'POST'];
+
+		$scope.initNewInput = function () {
+			$scope.newInput = {};
+			$scope.newInput.params = [];
+		}
+		$scope.initNewInput();
 
 		//Post a new input
 		$scope.postNewInput = function () {
@@ -18,7 +22,6 @@ angular.module('iotdash')
 				.success(function () {
 					$('#add-input-form').modal('hide');
 					$scope.getInputs();
-					$scope.newInput = {};
 				});
 		};
 

@@ -22,7 +22,7 @@
                 div.col-xs-4
                   input.form-control(type='text', placeholder='Key', ng-model='newTrigger.conditions[$index].key')
                 div.col-xs-3
-                  select.form-control(ng-init='newTrigger.conditions[$index].operator = operators[0]', 
+                  select.form-control(ng-init='newTrigger.conditions[$index].operator = newTrigger.conditions[$index].operator || operators[0]', 
                   ng-model='newTrigger.conditions[$index].operator', 
                   ng-options='o as o for o in operators')
                 div.col-xs-3

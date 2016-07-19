@@ -2,14 +2,18 @@
 
 angular.module('iotdash')
 	.controller('triggersController', function ($scope, $http, $filter) {
-		$scope.newTrigger = {};
 		$scope.triggers = [];
-		$scope.newTrigger.conditions = [];
 		$scope.inputs = [];
 		$scope.filteredTriggers = [];
 		$scope.triggerFilter = '';
 		$scope.operators = ['LESS THAN', 'GREATER THAN', 'EQUALS', 'NOT EQUALS', 'CONTAINS'];
 		$scope.opchains = ['AND', 'OR'];
+
+		$scope.initNewTrigger = function () {
+			$scope.newTrigger = {};
+			$scope.newTrigger.conditions = [];
+		}
+		$scope.initNewTrigger();
 
 		//Post a new trigger
 		$scope.postNewTrigger = function () {
@@ -17,7 +21,6 @@ angular.module('iotdash')
 				.success(function () {
 					$('#add-trigger-form').modal('hide');
 					$scope.getTriggers();
-					$scope.newTrigger = {};
 				});
 		};
 

@@ -15,7 +15,7 @@ block content
       .card-deck(ng-repeat='trigger in filteredTriggers')
         iot-trigger(trigger)
 
-    a.btn.btn-info.btn-fab.btn-raised.btn-right-corner(data-toggle="modal", data-target="#add-trigger-form")
+    a.btn.btn-info.btn-fab.btn-raised.btn-right-corner(ng-click='initNewTrigger()', data-toggle="modal", data-target="#add-trigger-form")
       i.material-icons add
       .ripple-container
     add-trigger-form

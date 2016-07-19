@@ -6,7 +6,7 @@ block content
       .card-deck(ng-repeat='input in inputs')
         iot-input(device)
 
-    a.btn.btn-info.btn-fab.btn-raised.btn-right-corner(data-toggle="modal", data-target="#add-input-form")
+    a.btn.btn-info.btn-fab.btn-raised.btn-right-corner(ng-click='initNewInput()', data-toggle="modal", data-target="#add-input-form")
       i.material-icons add
       .ripple-container
     add-input-form
