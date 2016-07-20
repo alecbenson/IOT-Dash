@@ -9,7 +9,8 @@ block content
           .input-group
             span.input-group-addon
               i.material-icons search
-            input.form-control(type='text', placeholder='Search for a trigger...', ng-model='triggerFilter')
+            abm-form-group
+              input(type='text', placeholder='Search for a trigger...', ng-model='triggerFilter', abm-form-control)
       .col-lg-2
     .card-deck-wrapper
       .card-deck(ng-repeat='trigger in filteredTriggers')

@@ -6,31 +6,32 @@
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h3.modal-title New Trigger
         .modal-body
-          .form-group.label-floating
-            label.control-label Name
-            input.form-control(type='text', placeholder='New Trigger', ng-model='newTrigger.name')
-          .form-group.label-floating
-            label.control-label Description
-            input.form-control(type='text', placeholder='What does this trigger do?', ng-model='newTrigger.description')
-          .form-group.label-floating
-            label.control-label Input
+          abm-form-group
+            label(abm-label) Name
+            input(type='text', placeholder='New Trigger', ng-model='newTrigger.name', abm-form-control)
+          abm-form-group
+            label(abm-label) Description
+            input(type='text', placeholder='What does this trigger do?', ng-model='newTrigger.description', abm-form-control)
+          abm-form-group
+            label(abm-label) Input
             select.form-control(ng-model='newTrigger.input', 
             ng-options='input.name for input in inputs track by input._id')
-          label(ng-show='newTrigger.conditions.length') Condition(s)
-            .form-group.form-group-sm(ng-repeat='c in newTrigger.conditions')
-              div.row
-                div.col-xs-4
-                  input.form-control(type='text', placeholder='Key', ng-model='newTrigger.conditions[$index].key')
-                div.col-xs-3
-                  select.form-control(ng-init='newTrigger.conditions[$index].operator = newTrigger.conditions[$index].operator || operators[0]', 
-                  ng-model='newTrigger.conditions[$index].operator', 
-                  ng-options='o as o for o in operators')
-                div.col-xs-3
-                  input.form-control(type='text', placeholder='Value', ng-model='newTrigger.conditions[$index].value')
-                div.col-xs-2
-                  select.form-control(ng-model='newTrigger.conditions[$index].opchain',
-                  ng-options='p as p for p in opchains', 
-                  ng-show='showOpchain($index)')
+          abm-form-group
+            label(abm-label, ng-show='newTrigger.conditions.length') Condition(s)
+          abm-form-group.form-group-sm(ng-repeat='c in newTrigger.conditions')
+            div.row
+              div.col-xs-4
+                input(type='text', placeholder='Key', ng-model='newTrigger.conditions[$index].key', abm-form-control)
+              div.col-xs-3
+                select(ng-init='newTrigger.conditions[$index].operator = newTrigger.conditions[$index].operator || operators[0]', 
+                ng-model='newTrigger.conditions[$index].operator', 
+                ng-options='o as o for o in operators', abm-form-control)
+              div.col-xs-3
+                input(type='text', placeholder='Value', ng-model='newTrigger.conditions[$index].value', abm-form-control)
+              div.col-xs-2
+                select(ng-model='newTrigger.conditions[$index].opchain',
+                ng-options='p as p for p in opchains', 
+                ng-show='showOpchain($index)', abm-form-control)
         .modal-footer
           button.btn.btn-success(type='button', ng-click='addCondition()') Add Condition
           button.btn.btn-primary(type='submit') Submit

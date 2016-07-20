@@ -6,25 +6,26 @@
           button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
           h3.modal-title Custom Input Source
         .modal-body
-          .form-group.label-floating
-            label.control-label Name
-            input.form-control(type='text', placeholder='Custom Input Source', ng-model='newInput.name')
-          .form-group.label-floating
-            label.control-label Description
-            input.form-control(type='text', placeholder='What does this input do?', ng-model='newInput.description')
-          .form-group.label-floating
-            label.control-label Request Type
-            select.form-control(ng-init='newInput.requestType = methods[0]', ng-model='newInput.requestType', ng-options='m as m for m in methods')
-          .form-group.label-floating
-            label.control-label URL
-            input.form-control(type='text', placeholder='What is the URL for the request?', ng-model='newInput.url')
-          label(ng-show='newInput.params.length') Parameter(s)
-            .form-group.form-group-sm(ng-repeat='input in newInput.params')
-              div.row
-                div.col-xs-6
-                  input.form-control(type='text', placeholder='Key', ng-model='newInput.params[$index].key')
-                div.col-xs-6
-                  input.form-control(type='text', placeholder='Value', ng-model='newInput.params[$index].value')
+          abm-form-group
+            label(abm-label) Name
+            input(type='text', placeholder='Custom Input Source', ng-model='newInput.name', abm-form-control)
+          abm-form-group
+            label(abm-label) Description
+            input(type='text', placeholder='What does this input do?', ng-model='newInput.description', abm-form-control)
+          abm-form-group
+            label(abm-label) Request Type
+            select(ng-init='newInput.requestType = methods[0]', ng-model='newInput.requestType', ng-options='m as m for m in methods', abm-form-control)
+          abm-form-group
+            label(abm-label) URL
+            input(type='text', placeholder='What is the URL for the request?', ng-model='newInput.url', abm-form-control)
+          abm-form-group
+            label(abm-label, ng-show='newInput.params.length') Parameter(s)
+          abm-form-group.form-group-sm(ng-repeat='input in newInput.params')
+            div.row
+              div.col-xs-6
+                input(type='text', placeholder='Key', ng-model='newInput.params[$index].key', abm-form-control)
+              div.col-xs-6
+                input(type='text', placeholder='Value', ng-model='newInput.params[$index].value', abm-form-control)
         .modal-footer
           button.btn.btn-success(type='button', ng-click='addParameter()') Add Parameter
           button.btn.btn-primary(type='submit') Submit
