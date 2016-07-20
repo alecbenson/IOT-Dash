@@ -14,8 +14,7 @@ var device = new mongoose.Schema({
 	},
 	ip: {
 		type: String,
-		required: true,
-		unique: true
+		required: true
 	},
 	triggers: [{
 		type: mongoose.Schema.Types.ObjectId,

@@ -75,7 +75,7 @@ router.post('/', function (req, res) {
 	winston.log('info', req.body);
 
 	var query = {
-		_id: req.body.id || new Device()._id
+		_id: req.body._id || new Device()._id
 	};
 
 	var set = {

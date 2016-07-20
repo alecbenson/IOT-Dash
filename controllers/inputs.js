@@ -99,7 +99,7 @@ router.post('/', function (req, res) {
 	winston.log('info', req.body);
 
 	var query = {
-		_id: req.body.id || new Input()._id
+		_id: req.body._id || new Input()._id
 	};
 
 	var set = {
