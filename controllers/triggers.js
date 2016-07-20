@@ -73,19 +73,22 @@ router.delete('/:id', function (req, res) {
 //Insert a new trigger
 router.post('/', function (req, res) {
 	winston.log('info', req.body);
-	var trigger = new Trigger();
-	trigger.name = req.body.name;
-	trigger.description = req.body.description;
-	trigger.input = req.body.input._id;
-	trigger.conditions = req.body.conditions;
-	trigger._id = req.body._id;
 
 	var query = {
-		_id: req.body._id
+		_id: req.body.id || new Trigger()._id
 	};
 
+	var set = {
+		$set: {
+			name: req.body.name,
+			description: req.body.description,
+			input: req.body.input,
+			conditions: req.body.conditions
+		}
+	}
+
 	//Save the trigger to the DB
-	Trigger.update(query, trigger, {
+	Trigger.update(query, set, {
 		upsert: true
 	}, function (err) {
 		if (err) {

@@ -97,20 +97,23 @@ router.delete('/:id', function (req, res) {
 //Update or insert a new input
 router.post('/', function (req, res) {
 	winston.log('info', req.body);
-	var input = new Input();
-	input.name = req.body.name;
-	input.description = req.body.description;
-	input.requestType = req.body.requestType;
-	input.url = req.body.url;
-	input.params = req.body.params;
-	input._id = req.body._id;
 
 	var query = {
-		_id: req.body.id
+		_id: req.body.id || new Input()._id
 	};
 
+	var set = {
+		$set: {
+			name: req.body.name,
+			description: req.body.description,
+			requestType: req.body.requestType,
+			url: req.body.url,
+			params: req.body.params
+		}
+	}
+
 	//Save the input to the DB
-	Input.update(query, input, {
+	Input.update(query, set, {
 		upsert: true
 	}, function (err) {
 		if (err) {

@@ -16,7 +16,12 @@
             label(abm-label) Local IP Address:
             input(type='text', placeholder='127.0.0.1', ng-model='newDevice.ip', abm-form-control)
           abm-form-group
-            label(abm-label) Trigger:
-            input(type='text', placeholder='TODO', ng-model='newDevice.triggers', abm-form-control)
+            label(abm-label) Trigger(s)
+          abm-form-group.form-group-sm(ng-repeat='input in newDevice.triggers')
+            div.row
+              div.col-xs-6
+                select.form-control(ng-model='newDevice.triggers[$index]',
+                ng-options='trigger.name for trigger in triggers track by trigger._id')
         .modal-footer
+          button.btn.btn-success(type='button', ng-click='addTrigger()') Add Trigger
           button.btn.btn-primary(type='submit') Submit

@@ -40,7 +40,7 @@ router.get('/single/:id', function (req, res) {
 	//Query for a device with the given id
 	var query = Device.findOne({
 		'_id': id
-	});
+	}).populate('triggers');
 	query.exec(function (err, device) {
 		if (err) {
 			winston.log('error', 'Get device: ' + err);
@@ -70,17 +70,29 @@ router.delete('/:id', function (req, res) {
 	});
 });
 
-//Insert a new device
+//Update or insert a new device
 router.post('/', function (req, res) {
 	winston.log('info', req.body);
-	var device = new Device();
-	device.name = req.body.name;
-	device.description = req.body.description;
-	device.ip = req.body.ip;
-	device.triggers = req.body.triggers;
 
-	//Save the device to the DB
-	device.save(function (err) {
+	var query = {
+		_id: req.body.id || new Device()._id
+	};
+
+	var set = {
+		$set: {
+			name: req.body.name,
+			description: req.body.description,
+			ip: req.body.ip,
+			triggers: req.body.triggers.map(function (trigger) {
+				return trigger._id
+			})
+		}
+	}
+
+	//Save the input to the DB
+	Device.update(query, set, {
+		upsert: true
+	}, function (err) {
 		if (err) {
 			winston.log('error', 'Post new device: ' + err);
 			res.send(err);
@@ -89,7 +101,7 @@ router.post('/', function (req, res) {
 		winston.log('info', 'Post new device: ' + 'success!');
 		res.send({
 			status: 201,
-			response: 'Created'
+			response: 'Upserted'
 		});
 	});
 });

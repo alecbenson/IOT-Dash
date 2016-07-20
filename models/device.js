@@ -18,8 +18,9 @@ var device = new mongoose.Schema({
 		unique: true
 	},
 	triggers: [{
-		type: String,
-		required: true
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Trigger',
+		required: false
 	}]
 });
 

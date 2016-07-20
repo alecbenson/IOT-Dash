@@ -5,9 +5,13 @@
       .progress.progress-striped.active.deviceStatus
         .progress-bar.progress-bar-info(style="width: 100%")
     .panel-body
-      a.btn.btn-warning.btn-fab.btn-card.pull-right
+      a.btn.btn-warning.btn-fab.btn-raised.btn-card.pull-right(data-toggle='modal', data-target='#add-device-form', ng-click='editDevice(device)')
         i.material-icons edit
       p.card-text {{device.description}}.
+      h5(ng-show='device.triggers.length') Triggers
+        table.table.table-condensed.table-responsive
+          tr(ng-repeat='t in device.triggers')
+            td {{p.name}}
       h5.card-text {{device.ip}}
     footer.card-footer
       button.btn.btn-flat.btn-danger(ng-click="deleteDevice(device._id)") Remove

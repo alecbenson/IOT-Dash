@@ -83,7 +83,7 @@ angular.module('iotdash')
 			return (index + 1) < $scope.newTrigger.conditions.length
 		}
 
-		//Set the new trigger object to the specified trigger'
+		//Set the new trigger object to the specified trigger
 		$scope.editTrigger = function (input) {
 			$scope.newTrigger = input;
 		}
