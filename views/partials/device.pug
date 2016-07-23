@@ -11,7 +11,8 @@
       h5(ng-show='device.triggers.length') Triggers
         table.table.table-condensed.table-responsive
           tr(ng-repeat='t in device.triggers')
-            td {{p.name}}
+            td {{t.name}}
+            td {{t.description}}
       h5.card-text {{device.ip}}
     footer.card-footer
       button.btn.btn-flat.btn-danger(ng-click="deleteDevice(device._id)") Remove

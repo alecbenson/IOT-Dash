@@ -21,7 +21,7 @@ router.get('/', function (req, res) {
 
 //Find all
 router.get('/all', function (req, res) {
-	var query = Device.find();
+	var query = Device.find().populate('triggers');
 	query.exec(function (err, devices) {
 		if (err) {
 			winston.log('error', 'Get devices: ' + err);

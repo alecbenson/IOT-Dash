@@ -5,7 +5,7 @@ angular.module('iotdash')
 		$scope.triggers = [];
 		$scope.inputs = [];
 		$scope.filteredTriggers = [];
-		$scope.triggerFilter = '';
+		$scope.filterText = '';
 		$scope.operators = ['LESS THAN', 'GREATER THAN', 'EQUALS', 'NOT EQUALS', 'CONTAINS'];
 		$scope.opchains = ['AND', 'OR'];
 
@@ -57,7 +57,7 @@ angular.module('iotdash')
 		//Filter through $scope.triggers and put results into $scope.filteredTriggers
 		function filterTriggers() {
 			$scope.filteredTriggers = $filter('filter')($scope.triggers, {
-				$: $scope.triggerFilter
+				$: $scope.filterText
 			});
 		}
 
@@ -73,7 +73,7 @@ angular.module('iotdash')
 		}
 
 		//Run whenever the search box is typed into
-		$scope.$watch('triggerFilter', function () {
+		$scope.$watch('filterText', function () {
 			filterTriggers();
 		});
 
