@@ -20,7 +20,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(require('./controllers'));
 
 //Connect to mongo
-db.connect();
+db.connectProd();
 
 //Listen on the specified port
 var server = app.listen(program.port, function () {
