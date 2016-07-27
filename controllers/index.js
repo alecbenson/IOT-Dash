@@ -16,6 +16,9 @@ router.use('/triggers', require('./triggers'));
 //Input API
 router.use('/inputs', require('./inputs'));
 
+//Voice API
+router.use('/voice', require('./voice'));
+
 //DateTime API
 router.use('/datetime', require('./dateTime'));
 

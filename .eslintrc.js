@@ -10,7 +10,7 @@ module.exports = {
 	},
 	"globals": {
 		"angular": 1,
-		"iotdash": 1,
+		"Wit": 1,
 	},
 	"rules": {
 		"indent": [2, "tab"],

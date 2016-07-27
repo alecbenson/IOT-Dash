@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div(ng-controller="voiceController")
+  .col-md-3
+  .card-block.col-md-6(style='text-align: center')
+    .panel.panel-info
+      .jumbotron
+        h1(id='info')
+        div(id='microphone')
+        div(id='error')
+        pre(id='result')
+  .col-md-3

@@ -34,3 +34,5 @@ node_modules
 
 # public dist files
 public/dist/*
+
+config.js

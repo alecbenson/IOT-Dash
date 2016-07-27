@@ -46,8 +46,8 @@ gulp.task('js', function () {
 //Concatenate and minify vendor CSS
 gulp.task('css', function () {
 	gulp.src(mainPaths.css, {
-			base: base
-		})
+		base: base
+	})
 		.pipe(concat('app.css'))
 		.pipe(uglifycss())
 		.pipe(gulp.dest(dest + 'css'));
@@ -84,8 +84,8 @@ gulp.task('vendorCss', function () {
 
 gulp.task('vendorFonts', function () {
 	return gulp.src('./bower_components/**/*.{eot,svg,ttf,woff,woff2}', {
-			base: base
-		})
+		base: base
+	})
 		.pipe(flatten())
 		.pipe(gulp.dest(vendorDest + 'fonts'));
 });

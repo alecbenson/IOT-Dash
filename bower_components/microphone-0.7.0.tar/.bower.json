@@ -1,0 +1,15 @@
+{
+  "name": "microphone-0.7.0.tar",
+  "_cacheHeaders": {
+    "ETag": "\"0599a2d767d445ac54a29589266c6c09\"",
+    "Last-Modified": "Fri, 03 Oct 2014 17:18:43 GMT",
+    "Content-Length": "5160",
+    "Content-Type": "application/octet-stream",
+    "Content-Disposition": "attachment; filename=microphone-0.7.0.tar.gz"
+  },
+  "_release": "e-tag:0599a2d76",
+  "_source": "https://github.com/wit-ai/microphone/releases/download/0.7.0/microphone-0.7.0.tar.gz",
+  "_target": "*",
+  "_originalSource": "https://github.com/wit-ai/microphone/releases/download/0.7.0/microphone-0.7.0.tar.gz",
+  "_direct": true
+}

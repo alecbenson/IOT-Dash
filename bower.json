@@ -29,7 +29,8 @@
     "prettify-min": "^1.0.4",
     "angular-bootstrap-material": "abm#^0.1.3",
     "bootstrap-material-design": "v0.5.9",
-    "angular-messages": "^1.5.3"
+    "angular-messages": "^1.5.3",
+    "microphone-0.7.0.tar": "https://github.com/wit-ai/microphone/releases/download/0.7.0/microphone-0.7.0.tar.gz"
   },
   "resolutions": {
     "jquery": "^1.9.1"
@@ -51,6 +52,11 @@
     "angular-bootstrap-material": {
       "main": [
         "dist/angular-bootstrap-material.min.js"
+      ]
+    },
+    "microphone-0.7.0.tar": {
+      "main": [
+        "microphone.min.js"
       ]
     }
   }
